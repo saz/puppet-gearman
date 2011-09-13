@@ -1,5 +1,5 @@
 class gearman::config {
-    file { $gearman::params::default_config_file:
+    file { $gearman::params::config_file:
         ensure  => present,
         owner   => root,
         group   => root,
