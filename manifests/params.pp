@@ -1,9 +1,9 @@
 class gearman::params {
     case $operatinsystem {
         /(Ubuntu|Debian)/: {
-            $package_name = "gearman-job-server"
-            $default_config_file = "/etc/default/gearman-job-server"
-            $service_name = "gearman-job-server"
+            $package_name = 'gearman-job-server'
+            $default_config_file = '/etc/default/gearman-job-server'
+            $service_name = 'gearman-job-server'
         }
     }
 
