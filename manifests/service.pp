@@ -4,6 +4,7 @@ class gearman::service {
         enable     => true,
         hasrestart => true,
         hasstatus  => false,
+        pattern    => 'gearmand',
         require    => Class['gearman::config'],
     }
 }
