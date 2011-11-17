@@ -1,11 +1,14 @@
 class gearman::config {
-    if $gearman::params::_maxfiles > 1024 {
-        limits::limits { 'gearman_nofiles':
-            ensure     => present,
-            user       => 'gearman',
-            limit_type => 'nofile',
-            hard       => $gearman::params::maxfiles,
-            soft       => $gearman::params::maxfiles,
+    if $gearman_maxfiles != undef {
+        if $gearman_maxfiles > 1024 {
+            limits::limits { 'gearman_nofiles':
+                ensure     => present,
+                user       => 'gearman',
+                limit_type => 'nofile',
+                hard       => $gearman_maxfiles,
+                soft       => $gearman_maxfiles,
+                notify     => Class['gearman::service'],
+            }
         }
     }
 
