@@ -26,4 +26,9 @@ class gearman::params {
         '': { $threads = '--threads=4' }
         default: { $threads = "--threads=${gearman_threads}" }
     }
+
+    case $gearman_maxfiles {
+        '': { $maxfiles = '--file-descriptors=1024' }
+        default: { $maxfiles = "--file-descriptors=${gearman_maxfiles}" }
+    }
 }
