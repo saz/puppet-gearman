@@ -10,7 +10,7 @@ Manage gearman configuration via Puppet
 
 ### Higher file descriptor limit
 
-Requires saz-limits module from forge.puppetlabs.com
+**Requires saz-limits module from forge.puppetlabs.com**
 
 ```
     $gearman_maxfiles = 16384
