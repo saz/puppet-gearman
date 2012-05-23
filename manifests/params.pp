@@ -31,4 +31,9 @@ class gearman::params {
         '': { $maxfiles = '--file-descriptors=1024' }
         default: { $maxfiles = "--file-descriptors=${gearman_maxfiles}" }
     }
+
+    case $gearman_worker_wakeup {
+        '': { $worker_wakeup = '--worker-wakeup=0' }
+        default: { $worker_wakeup = "--worker-wakeup=${gearman_worker_wakeup}" }
+    }
 }
