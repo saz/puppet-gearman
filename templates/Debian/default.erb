@@ -18,20 +18,20 @@
 # Missing examples for memcache persitent queue store...
 
 PARAMS="--backlog=<%= backlog %> \
-        --job-retries=<%= job_retries %> \
-        --port=<%= port %> \
-        --listen=<%= listen %> \
-        --threads=<%= threads %> \
-        --file-descriptors=<%= maxfiles %> \
-        --worker-wakeup=<%= worker_wakeup %> \
-        <% if @log_file -%>
-        --log-file=<%= log_file %> \
-        <% end -%>
-        <% if @verbose -%>
-        --verbose=<%= verbose %> \
-        <% end -%>
-        <% if @queue_type -%>
-        --queue-type <%= queue_type %> \
-        <%= queue_params %> \
-        <% end -%>
+--job-retries=<%= job_retries %> \
+--port=<%= port %> \
+--listen=<%= listen %> \
+--threads=<%= threads %> \
+--file-descriptors=<%= maxfiles %> \
+--worker-wakeup=<%= worker_wakeup %> \
+<% if @log_file -%>
+--log-file=<%= log_file %> \
+<% end -%>
+<% if @verbose -%>
+--verbose=<%= verbose %> \
+<% end -%>
+<% if @queue_type -%>
+--queue-type=<%= queue_type %> \
+<%= queue_params %> \
+<% end -%>
 "
