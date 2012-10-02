@@ -1,39 +1,25 @@
 class gearman::params {
-    case $operatingsystem {
-        /(Ubuntu|Debian)/: {
-            $package_name = 'gearman-job-server'
-            $config_file = '/etc/default/gearman-job-server'
-            $service_name = 'gearman-job-server'
+  case $::osfamily {
+    'Debian': {
+      $package_name = 'gearman-job-server'
+      $config_file = '/etc/default/gearman-job-server'
+      $config_file_template = "${::osfamily}/default.erb"
+      $service_name = 'gearman-job-server'
+      $maxfiles = 1024
+    }
+    default: {
+      case $::operatingsystem {
+        default: {
+          fail("Unsupported platform: ${::osfamily}/${::operatingsystem}")
         }
+      }
     }
+  }
 
-    case $gearman_job_retries {
-        '': { $job_retries = '--job-retries=0' }
-        default: { $job_retries = "--job-retries=${gearman_job_retries}" }
-    }
-
-    case $gearman_port {
-        '': { $port = '--port=4730' }
-        default: { $port = "--port=${gearman_port}" }
-    }
-
-    case $gearman_listen {
-        '': { $listen = '--listen=0.0.0.0' }
-        default: { $listen = "--listen=${gearman_listen}" }
-    }
-
-    case $gearman_threads {
-        '': { $threads = '--threads=4' }
-        default: { $threads = "--threads=${gearman_threads}" }
-    }
-
-    case $gearman_maxfiles {
-        '': { $maxfiles = '--file-descriptors=1024' }
-        default: { $maxfiles = "--file-descriptors=${gearman_maxfiles}" }
-    }
-
-    case $gearman_worker_wakeup {
-        '': { $worker_wakeup = '--worker-wakeup=0' }
-        default: { $worker_wakeup = "--worker-wakeup=${gearman_worker_wakeup}" }
-    }
+  $backlog = 32
+  $job_retries = 0
+  $port = 4730
+  $listen = '0.0.0.0'
+  $threads = 4
+  $worker_wakeup = 0
 }
