@@ -1,5 +1,7 @@
 # puppet-gearman
 
+[![Build Status](https://secure.travis-ci.org/saz/puppet-gearman.png)](http://travis-ci.org/saz/puppet-gearman)
+
 Manage gearman configuration via Puppet
 
 ## Usage
