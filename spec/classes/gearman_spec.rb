@@ -103,7 +103,7 @@ describe 'gearman' do
               "--worker-wakeup=#{param_hash[:worker_wakeup]} \\",
             ]
             if(param_hash[:log_file])
-              expected_lines.push("--log-file=#{param_hash[:log_file]} \\")
+              expected_lines.push("# --log-file parameter is set via init script and can't be changed!")
             end
             if(param_hash[:verbose])
               expected_lines.push("--verbose=#{param_hash[:verbose]} \\")
