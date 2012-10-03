@@ -6,6 +6,7 @@ class gearman::params {
       $config_file_template = "${::osfamily}/default.erb"
       $service_name = 'gearman-job-server'
       $maxfiles = 1024
+      $user = 'gearman'
     }
     default: {
       case $::operatingsystem {
