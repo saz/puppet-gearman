@@ -17,6 +17,10 @@
 #
 # Missing examples for memcache persitent queue store...
 
+<% if @log_file -%>
+# --log-file parameter is set via init script and can't be changed!
+<% end -%>
+
 PARAMS="--backlog=<%= backlog %> \
 --job-retries=<%= job_retries %> \
 --port=<%= port %> \
@@ -24,9 +28,6 @@ PARAMS="--backlog=<%= backlog %> \
 --threads=<%= threads %> \
 --file-descriptors=<%= maxfiles %> \
 --worker-wakeup=<%= worker_wakeup %> \
-<% if @log_file -%>
---log-file=<%= log_file %> \
-<% end -%>
 <% if @verbose -%>
 --verbose=<%= verbose %> \
 <% end -%>
