@@ -7,7 +7,7 @@ Manage gearman via Puppet
 ## How to use
 
 ```ruby
-    class { 'gearman:' }
+    class { 'gearman': }
 ```
 
 ### Higher file descriptor limit
