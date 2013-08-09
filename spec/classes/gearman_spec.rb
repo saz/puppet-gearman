@@ -135,7 +135,7 @@ describe 'gearman' do
           end
         end
 
-        it { should contain_package('gearmand').with_ensure(package_ensure).with_require('Class[Epel]') }
+        it { should contain_package('gearmand').with_ensure(package_ensure).with_require(/Class\[Epel\]/i) }
 
         it { should contain_file('/etc/sysconfig/gearmand').with(
           'owner'   => 'root',
