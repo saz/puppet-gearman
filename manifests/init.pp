@@ -49,8 +49,18 @@ class gearman(
     }
   }
 
+  if $::osfamily == 'RedHat' {
+    if ! defined(Class['epel']) {
+      include epel
+    }
+    $require = Class['epel']
+  } else {
+    $require = undef
+  }
+
   package { $package_name:
-    ensure => $package_ensure,
+    ensure  => $package_ensure,
+    require => $require,
   }
 
   file { $config_file:

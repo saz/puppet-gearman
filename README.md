@@ -20,11 +20,15 @@ Manage gearman via Puppet
     }
 ```
 
+### RedHat / CentOS package support
+
+Gearman packages for the RedHat OS family are available in the EPEL repository. You need the [puppet-epel](https://github.com/stahnma/puppet-module-epel) module available for RHEL / CentOS support.
+
 ### All class parameters
 
 * $ensure = 'present'
-* $backlog = 
-* $job_retries = 
+* $backlog =
+* $job_retries =
 * $port = 4730
 * $listen = '0.0.0.0'
 * $threads = 4

@@ -1,0 +1,39 @@
+# File managed by puppet
+
+# This is a configuration file for /etc/init.d/gearmand; it allows
+# you to perform common modifications to the behavior of the gearmand
+# daemon startup without editing the init script to allow our package
+# management to handle file upgrades.
+#
+# Examples ( from http://gearman.org/index.php?id=manual:job_server )
+#
+# Use drizzle as persistent queue store
+# OPTIONS="-q libdrizzle --libdrizzle-db=some_db \
+#                        --libdrizzle-table=gearman_queue"
+#
+# Use mysql as persistent queue store
+# OPTIONS="-q mysql --mysql-host=10.0.0.1 --mysql-user=gearman \
+#                   --mysql-password=secret --mysql-db=some_db \
+#                   --mysql-table=gearman_queue"
+#
+
+OPTIONS="--backlog=<%= backlog %> \
+--job-retries=<%= job_retries %> \
+--port=<%= port %> \
+--listen=<%= listen %> \
+--threads=<%= threads %> \
+--file-descriptors=<%= maxfiles %> \
+--worker-wakeup=<%= worker_wakeup %> \
+<% if @verbose -%>
+--verbose=<%= verbose %> \
+<% end -%>
+<% if @queue_type -%>
+--queue-type=<%= queue_type %> \
+<%= queue_params %> \
+<% end -%>
+<% if @log_file -%>
+--log-file=<%= log_file %> \
+<% else -%>
+--log-file=/var/log/gearmand/gearmand.log \
+<% end -%>
+"
