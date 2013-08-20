@@ -53,14 +53,14 @@ class gearman(
     if ! defined(Class['epel']) {
       include epel
     }
-    $require = Class['epel']
+    $require_epel = Class['epel']
   } else {
-    $require = undef
+    $require_epel = undef
   }
 
   package { $package_name:
     ensure  => $package_ensure,
-    require => $require,
+    require => $require_epel,
   }
 
   file { $config_file:
