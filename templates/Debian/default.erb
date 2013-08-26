@@ -21,18 +21,18 @@
 # --log-file parameter is set via init script and can't be changed!
 <% end -%>
 
-PARAMS="--backlog=<%= backlog %> \
---job-retries=<%= job_retries %> \
---port=<%= port %> \
---listen=<%= listen %> \
---threads=<%= threads %> \
---file-descriptors=<%= maxfiles %> \
---worker-wakeup=<%= worker_wakeup %> \
+PARAMS="--backlog=<%= @backlog %> \
+--job-retries=<%= @job_retries %> \
+--port=<%= @port %> \
+--listen=<%= @listen %> \
+--threads=<%= @threads %> \
+--file-descriptors=<%= @maxfiles %> \
+--worker-wakeup=<%= @worker_wakeup %> \
 <% if @verbose -%>
---verbose=<%= verbose %> \
+--verbose=<%= @verbose %> \
 <% end -%>
 <% if @queue_type -%>
---queue-type=<%= queue_type %> \
+--queue-type=<%= @queue_type %> \
 <%= queue_params %> \
 <% end -%>
 "
