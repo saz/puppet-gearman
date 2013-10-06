@@ -8,6 +8,14 @@ class gearman::params {
       $maxfiles = 1024
       $user = 'gearman'
     }
+    'RedHat': {
+      $package_name = 'gearmand'
+      $config_file = '/etc/sysconfig/gearmand'
+      $config_file_template = "${::osfamily}/default.erb"
+      $service_name = 'gearmand'
+      $maxfiles = 1024
+      $user = 'gearmand'
+    }
     default: {
       case $::operatingsystem {
         default: {

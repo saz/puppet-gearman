@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    epel: https://github.com/stahnma/puppet-module-epel.git
+  symlinks:
+    gearman: "#{source_dir}"
