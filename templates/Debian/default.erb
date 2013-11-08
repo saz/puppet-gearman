@@ -33,6 +33,6 @@ PARAMS="--backlog=<%= @backlog %> \
 <% end -%>
 <% if @queue_type -%>
 --queue-type=<%= @queue_type %> \
-<%= queue_params %> \
+<%= @queue_params %> \
 <% end -%>
 "
