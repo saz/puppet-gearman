@@ -7,7 +7,8 @@ class gearman(
   $threads = $gearman::params::threads,
   $maxfiles = $gearman::params::maxfiles,
   $worker_wakeup = $gearman::params::worker_wakeup,
-  $log_file = undef,
+  $log_dir = $gearman::params::log_dir,
+  $log_file = $gearman::params::log_file,
   $verbose = undef,
   $queue_type = undef,
   $queue_params = undef,
@@ -25,6 +26,8 @@ class gearman(
 
   case $ensure {
     present: {
+      $directory_ensure = 'directory'
+
       if $autoupgrade == true {
         $package_ensure = 'latest'
       } else {
@@ -41,6 +44,7 @@ class gearman(
       }
     }
     absent: {
+      $directory_ensure = 'absent'
       $package_ensure = 'absent'
       $service_ensure_real = 'stopped'
     }
@@ -73,8 +77,17 @@ class gearman(
     notify  => Service[$service_name],
   }
 
+  file { $log_dir:
+    ensure  => $directory_ensure,
+    recurse => true,
+    owner   => $gearman::params::user,
+    group   => $gearman::params::user,
+    require => Package[$package_name],
+    notify  => Service[$service_name],
+  }->
   file { $log_file:
     ensure  => $ensure,
+    recurse => true,
     owner   => $gearman::params::user,
     group   => $gearman::params::user,
     mode    => '0640',
