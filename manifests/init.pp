@@ -75,8 +75,8 @@ class gearman(
 
   file { $log_file:
     ensure  => $ensure,
-    owner   => 'gearmand',
-    group   => 'gearmand',
+    owner   => $gearman::params::user,
+    group   => $gearman::params::user,
     mode    => '0640',
     require => Package[$package_name],
     notify  => Service[$service_name],
