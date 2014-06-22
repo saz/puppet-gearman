@@ -4,6 +4,7 @@ class gearman::params {
       $package_name = 'gearman-job-server'
       $config_file = '/etc/default/gearman-job-server'
       $config_file_template = "${::osfamily}/default.erb"
+      $log_file = '/var/log/gearmand/gearmand.log'
       $service_name = 'gearman-job-server'
       $maxfiles = 1024
       $user = 'gearman'
@@ -12,6 +13,7 @@ class gearman::params {
       $package_name = 'gearmand'
       $config_file = '/etc/sysconfig/gearmand'
       $config_file_template = "${::osfamily}/default.erb"
+      $log_file = '/var/log/gearmand/gearmand.log'
       $service_name = 'gearmand'
       $maxfiles = 1024
       $user = 'gearmand'

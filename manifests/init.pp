@@ -73,6 +73,15 @@ class gearman(
     notify  => Service[$service_name],
   }
 
+  file { $log_file:
+    ensure  => $ensure,
+    owner   => 'gearmand',
+    group   => 'gearmand',
+    mode    => '0640',
+    require => Package[$package_name],
+    notify  => Service[$service_name],
+  }
+
   if $disable_limits_module == false {
     if $maxfiles > $gearman::params::maxfiles {
       limits::limits { "${gearman::params::user}_nofiles":
