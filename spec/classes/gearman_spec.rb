@@ -60,7 +60,7 @@ describe 'gearman' do
           }
         end
 
-        it { should_not include_class('epel') }
+        it { should_not contain_class('epel') }
         it { should contain_class('gearman::params') }
 
         let :package_ensure do
@@ -124,7 +124,7 @@ describe 'gearman' do
           }
         end
 
-        it { should include_class('epel') }
+        it { should contain_class('epel') }
         it { should contain_class('gearman::params') }
 
         let :package_ensure do
