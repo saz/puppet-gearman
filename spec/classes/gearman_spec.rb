@@ -121,6 +121,7 @@ describe 'gearman' do
             operatingsystem: 'CentOS',
             osfamily: 'RedHat',
             operatingsystemrelease: '7.0.1406',
+            operatingsystemmajrelease: '7',
             memorysize: '1000 MB',
             processorcount: '1'
           }
