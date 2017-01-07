@@ -25,7 +25,7 @@ class gearman(
 ) inherits gearman::params {
 
   case $ensure {
-    present: {
+    'present': {
       $directory_ensure = 'directory'
 
       if $autoupgrade == true {
@@ -35,7 +35,7 @@ class gearman(
       }
 
       case $service_ensure {
-        running, stopped: {
+        'running', 'stopped': {
           $service_ensure_real = $service_ensure
         }
         default: {
@@ -43,7 +43,7 @@ class gearman(
         }
       }
     }
-    absent: {
+    'absent': {
       $directory_ensure = 'absent'
       $package_ensure = 'absent'
       $service_ensure_real = 'stopped'
@@ -55,7 +55,7 @@ class gearman(
 
   if $::osfamily == 'RedHat' {
     if ! defined(Class['epel']) {
-      include epel
+      include ::epel
     }
     $require_epel = Class['epel']
   } else {

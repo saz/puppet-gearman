@@ -3,3 +3,4 @@ pkg/
 metadata.json
 vendor/
 Gemfile.lock
+spec/fixtures/
