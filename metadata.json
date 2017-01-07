@@ -1,0 +1,15 @@
+{
+  "name": "saz-gearman",
+  "version": "2.2.0",
+  "author": "saz",
+  "summary": "Manage gearman job server",
+  "license": "Apache-2.0",
+  "source": "https://github.com/saz/puppet-gearman.git",
+  "project_page": "https://github.com/saz/puppet-gearman",
+  "issues_url": "https://github.com/saz/puppet-gearman/issues",
+  "description": "Manage gearman job server via Puppet",
+  "dependencies": [
+      {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0 < 6.0.0"},
+      {"name":"saz/limits","version_requirement":">= 1.0.0"}
+  ]
+}
