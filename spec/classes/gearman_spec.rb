@@ -118,7 +118,9 @@ describe 'gearman' do
       context 'on OS family RedHat' do
         let :facts do
           {
+            operatingsystem: 'CentOS',
             osfamily: 'RedHat',
+            operatingsystemrelease: '7.0.1406',
             memorysize: '1000 MB',
             processorcount: '1'
           }
