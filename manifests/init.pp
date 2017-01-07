@@ -54,10 +54,10 @@ class gearman(
   }
 
   if $::osfamily == 'RedHat' {
-    if ! defined(Class['epel']) {
+    if ! defined(Class['::epel']) {
       include ::epel
     }
-    $require_epel = Class['epel']
+    $require_epel = Class['::epel']
   } else {
     $require_epel = undef
   }
