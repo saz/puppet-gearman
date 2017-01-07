@@ -35,4 +35,7 @@ PARAMS="--backlog=<%= @backlog %> \
 --queue-type=<%= @queue_type %> \
 <%= @queue_params %> \
 <% end -%>
+<% if @pidfile -%>
+--pid-file=<%= @pidfile %> \
+<% end -%>
 "

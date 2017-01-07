@@ -9,6 +9,7 @@ class gearman(
   $worker_wakeup = $gearman::params::worker_wakeup,
   $log_dir = $gearman::params::log_dir,
   $log_file = $gearman::params::log_file,
+  $pidfile = undef,
   $verbose = undef,
   $queue_type = undef,
   $queue_params = undef,

@@ -36,4 +36,7 @@ OPTIONS="--backlog=<%= @backlog %> \
 <% else -%>
 --log-file=/var/log/gearmand/gearmand.log \
 <% end -%>
+<% if @pidfile -%>
+--pid-file=<%= @pidfile %> \
+<% end -%>
 "
