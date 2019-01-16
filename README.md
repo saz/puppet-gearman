@@ -1,3 +1,13 @@
+
+# THIS MODULE IS NOT MAINTAINED ANYMORE
+
+No further development or releases
+
+
+***************************************
+
+
+
 # puppet-gearman [![Build Status](https://secure.travis-ci.org/saz/puppet-gearman.png)](http://travis-ci.org/saz/puppet-gearman)
 
 Manage gearman via Puppet
